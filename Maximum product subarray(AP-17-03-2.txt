@@ -1,0 +1,27 @@
+Maximum product subarray(AP-17-03-25)
+
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int maxi = 0;
+        int n = nums.size();
+        if(nums.size()==1)
+        {
+            return 1;
+        }
+        if (n == 1)
+        {
+            return nums[0];
+        } 
+        for(int i=0; i<n; i++) 
+        {
+            int product = nums[i];
+            for( int j=i+1; j<n; j++) 
+            {
+                product = i*j;
+                maxi = max(maxi,product);
+            }
+        }
+        return maxi;
+    }
+};
